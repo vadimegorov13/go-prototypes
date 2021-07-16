@@ -46,7 +46,7 @@ func NewServer(mux *http.ServeMux, serverAddress string) *http.Server {
 
 	// Custom server
 	return &http.Server{
-		Addr:         serverAddress,
+		Addr:         ":8000",
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
 		IdleTimeout:  120 * time.Second,
