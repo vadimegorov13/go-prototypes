@@ -46,7 +46,7 @@ func NewServer(mux *http.ServeMux, serverAddress string) *http.Server {
 
 	// Custom server
 	return &http.Server{
-		Addr:         ":8000",
+		Addr:         serverAddress,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
 		IdleTimeout:  120 * time.Second,
@@ -63,7 +63,7 @@ func main() {
 		rw.Write([]byte(message))
 	})
 
-	srv := NewServer(mux, GcukServiceAddr)
+	srv := NewServer(mux, ":8080")
 
 	err := srv.ListenAndServe()
 	if err != nil {
